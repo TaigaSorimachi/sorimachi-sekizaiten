@@ -1,0 +1,275 @@
+/*
+Theme Name: Inspiro Child - 関斎店
+Description: 関斎店用のInspiroカスタマイズテーマ
+Template: inspiro
+Version: 1.0.0
+*/
+
+@import url("../inspiro/style.css");
+
+/* 関斎店カスタムスタイル */
+
+/* 日本語フォントの追加 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+/* 基本フォント設定 */
+body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.7;
+}
+
+/* ヘッダーのカスタマイズ */
+.site-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.site-title a {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-decoration: none;
+}
+
+/* ナビゲーションメニューのスタイル */
+.main-navigation a {
+    color: #2c3e50;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.main-navigation a:hover {
+    color: #3498db;
+}
+
+/* ヒーローセクションのカスタマイズ */
+.custom-header {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.8) 0%, rgba(52, 152, 219, 0.8) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-header .header-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.custom-header h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.custom-header p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* CTAボタンのスタイル */
+.cta-button {
+    display: inline-block;
+    background: #e74c3c;
+    color: white !important;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.cta-button:hover {
+    background: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    text-decoration: none;
+    color: white !important;
+}
+
+/* セクションのスタイリング */
+.wp-block-group {
+    padding: 4rem 0;
+}
+
+.wp-block-group.has-background {
+    padding: 5rem 0;
+}
+
+/* 見出しのスタイル */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.wp-block-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.wp-block-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #3498db;
+    margin: 1rem auto;
+}
+
+/* カードスタイル */
+.wp-block-columns .wp-block-column {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.wp-block-columns .wp-block-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* アイコンのスタイル */
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2.5rem;
+}
+
+/* お問い合わせセクション */
+.contact-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.contact-section h2,
+.contact-section h3 {
+    color: white;
+}
+
+.contact-section .wp-block-heading::after {
+    background: white;
+}
+
+/* フォームのスタイル */
+.wp-block-group .wp-block-group {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+/* 会社情報のスタイル */
+.company-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.company-info h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.company-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* プレースホルダー画像のスタイル */
+.placeholder-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 2rem;
+}
+
+/* フッターのカスタマイズ */
+.site-footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 2rem;
+}
+
+.site-info {
+    text-align: center;
+}
+
+.site-info a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.site-info a:hover {
+    color: #2980b9;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .custom-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .custom-header p {
+        font-size: 1.1rem;
+    }
+    
+    .wp-block-columns .wp-block-column {
+        padding: 1.5rem;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+}
+
+/* アニメーション効果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wp-block-group {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* スムーズスクロール */
+html {
+    scroll-behavior: smooth;
+}
