@@ -14,7 +14,7 @@ function inspiro_child_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'inspiro_child_enqueue_styles' );
 
-// 関斎店用のカスタム機能
+// そりまち石材店用のカスタム機能
 function sorimachi_setup() {
     // カスタムロゴサポート
     add_theme_support( 'custom-logo', array(
@@ -26,11 +26,20 @@ function sorimachi_setup() {
 }
 add_action( 'after_setup_theme', 'sorimachi_setup' );
 
+// サイトタイトルのデフォルト設定
+function sorimachi_set_default_title() {
+    if (get_option('blogname') === 'WordPress' || get_option('blogname') === '') {
+        update_option('blogname', 'そりまち石材店');
+        update_option('blogdescription', '伝統と革新が織りなす、唯一無二の形。');
+    }
+}
+add_action('after_setup_theme', 'sorimachi_set_default_title');
+
 // カスタマイザー設定
 function sorimachi_customize_register( $wp_customize ) {
     // 会社情報セクション
     $wp_customize->add_section( 'sorimachi_company_info', array(
-        'title'    => '関斎店 - 会社情報',
+        'title'    => 'そりまち石材店 - 会社情報',
         'priority' => 30,
     ) );
     
@@ -168,6 +177,29 @@ function sorimachi_custom_scripts() {
     ?>
     <script>
     jQuery(document).ready(function($) {
+        // モバイルメニュートグル
+        $('.mobile-menu-toggle').on('click', function() {
+            $(this).toggleClass('active');
+            $('.mobile-menu-overlay').toggleClass('active');
+            $('body').toggleClass('menu-open');
+        });
+        
+        // モバイルメニューのリンククリック時に閉じる
+        $('.mobile-nav-menu a').on('click', function() {
+            $('.mobile-menu-toggle').removeClass('active');
+            $('.mobile-menu-overlay').removeClass('active');
+            $('body').removeClass('menu-open');
+        });
+        
+        // オーバーレイクリックで閉じる
+        $('.mobile-menu-overlay').on('click', function(e) {
+            if (e.target === this) {
+                $('.mobile-menu-toggle').removeClass('active');
+                $(this).removeClass('active');
+                $('body').removeClass('menu-open');
+            }
+        });
+        
         // スムーズスクロール
         $('a[href^="#"]').on('click', function(e) {
             e.preventDefault();
@@ -189,24 +221,29 @@ function sorimachi_custom_scripts() {
         });
         
         // カードのアニメーション
-        $('.wp-block-column').each(function(i) {
-            $(this).delay(i * 200).animate({
-                opacity: 1,
-                transform: 'translateY(0)'
-            }, 600);
+        $('.stone-service-card, .portfolio-item').each(function(i) {
+            $(this).delay(i * 100).queue(function() {
+                $(this).addClass('animate-in').dequeue();
+            });
         });
     });
     </script>
     <style>
-    .site-header.scrolled {
-        background: rgba(255, 255, 255, 0.98) !important;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.15) !important;
+    body.menu-open {
+        overflow: hidden;
     }
     
-    .wp-block-column {
+    .stone-service-card,
+    .portfolio-item {
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.6s ease;
+    }
+    
+    .stone-service-card.animate-in,
+    .portfolio-item.animate-in {
+        opacity: 1;
+        transform: translateY(0);
     }
     </style>
     <?php
